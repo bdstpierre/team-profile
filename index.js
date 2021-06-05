@@ -35,6 +35,7 @@ const promptManager = () => {
     ])
 };
 
+// The buildTeam function prompts the user if they want to add team memebers to their team
 const buildTeam = () => {
     inquirer.prompt([
         {
@@ -44,11 +45,13 @@ const buildTeam = () => {
             choices: ['Engineer', 'Intern', 'Team Complete!']
         },
     ])
+    // Check the answer for the adding team member question and call the appropriate prompt function
     .then((answers) => {
         switch(answers.build) {
             case 'Engineer':
                 console.log('Adding an engineer');
                 addEngineer()
+                // Add the new employee object to the employees array
                 .then((answers) => {
                     employees.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
                     console.log(employees);
@@ -59,6 +62,7 @@ const buildTeam = () => {
             case 'Intern':
                 console.log('Adding an intern');
                 addIntern()
+                // Addt he new employee object to the employees array
                 .then((answers) => {
                     employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
                     console.log(employees);
@@ -70,8 +74,10 @@ const buildTeam = () => {
                 console.log('Team Complete!');
                 //createHTML();
         }
-})};
+    })
+};
 
+// The addEngineer function prompts for the info for engineer employees
 const addEngineer = () => {
     return inquirer.prompt([
         {
@@ -97,6 +103,7 @@ const addEngineer = () => {
     ])
 };
 
+// The addIntern function prompts for the info for intern employees
 const addIntern = () => {
     return inquirer.prompt([
         {
@@ -123,9 +130,10 @@ const addIntern = () => {
 };
 
 
-
+// The init function asks for info on the manager and then calls the function to build the team
 const init = () => {
     promptManager()
+    // Add the manager to the employees array
     .then((answers) => {
         employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
         console.log(employees);
@@ -134,4 +142,5 @@ const init = () => {
     .catch((err) => console.error(err));
 };
 
+// Kick off processing with the init() function
 init();
