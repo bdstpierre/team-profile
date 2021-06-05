@@ -36,7 +36,7 @@ const promptManager = () => {
 };
 
 const buildTeam = () => {
-    return inquirer.prompt([
+    inquirer.prompt([
         {
             type: 'list',
             name: 'build',
@@ -44,85 +44,92 @@ const buildTeam = () => {
             choices: ['Engineer', 'Intern', 'Team Complete!']
         },
     ])
-};
+    .then((answers) => {
+        switch(answers.build) {
+            case 'Engineer':
+                console.log('Adding an engineer');
+                addEngineer()
+                .then((answers) => {
+                    employees.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
+                    console.log(employees);
+                    return buildTeam();
+                });
+                break;
+
+            case 'Intern':
+                console.log('Adding an intern');
+                addIntern()
+                .then((answers) => {
+                    employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
+                    console.log(employees);
+                    return buildTeam();
+                });
+                break;
+
+            default:
+                console.log('Team Complete!');
+                //createHTML();
+        }
+})};
 
 const addEngineer = () => {
     return inquirer.prompt([
         {
-
+            type: 'input',
+            name: 'name',
+            message: 'Enter employee name:',
         },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Enter employee ID:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter employee email address:',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Enter employee github username:',
+        },    
     ])
 };
 
-const generateReadme = (answers) => {
-switch (answers.license) {
-
+const addIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter employee name:',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Enter employee ID:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter employee email address:',
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Enter employee\'s school:',
+        },    
+    ])
 };
 
-return `# ${answers.projectName}
-## Description
-${badge}\n
-${answers.description}\n
-![Screenshot of the apllication or project](${answers.screenshot})
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [Questions](#questions)
-- [License](#license)
-- [Features](#features)
-- [How to Contribute](#how-to-contribute)
-- [Tests](#tests)
-## Installation
-${answers.installation}
-## Usage
-${answers.usage}
-## Credits
-${answers.credits}
-## Questions
-If you have any questions you can contact the author through his github user profile: https://github.com/${answers.gitName}
-or by sending an email to ${answers.email}
-## License
-${licenseText}
-## Features
-${answers.features}
-## How to Contribute
-${answers.contribute}
-## Tests
-${answers.tests}
-`;
-};
 
-// const init = () => {
-//     promptManager()
-//     .then((answers) => writeFileAsync('README.md', generateReadme(answers)))
-//     .then(() => console.log('Successfully wrote to README.md'))
-//     .catch((err) => console.error(err));
-// };
 
 const init = () => {
     promptManager()
     .then((answers) => {
         employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
         console.log(employees);
-        buildTeam()
-            .then((answers) => {
-                switch(answers.build) {
-                    case 'Engineer':
-                        console.log('Adding an engineer');
-                        //addEngineer()
-                        break;
-
-                    case 'Intern':
-                        console.log('Adding an intern');
-                        //addIntern();
-                        break;
-
-                    default:
-                        console.log('Team Complete!');
-                        //createHTML();
-                }
-            })
+        buildTeam();
         })
     .catch((err) => console.error(err));
 };
