@@ -77,22 +77,22 @@ const addEngineer = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'Enter employee name:',
+            message: 'Enter employee\'s name:',
         },
         {
             type: 'input',
             name: 'id',
-            message: 'Enter employee ID:',
+            message: 'Enter employee\'s ID:',
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter employee email address:',
+            message: 'Enter employee\'s email address:',
         },
         {
             type: 'input',
             name: 'github',
-            message: 'Enter employee github username:',
+            message: 'Enter employee\'s github username:',
         },    
     ])
 };
@@ -102,17 +102,17 @@ const addIntern = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'Enter employee name:',
+            message: 'Enter employee\'s name:',
         },
         {
             type: 'input',
             name: 'id',
-            message: 'Enter employee ID:',
+            message: 'Enter employee\'s ID:',
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter employee email address:',
+            message: 'Enter employee\'s email address:',
         },
         {
             type: 'input',
