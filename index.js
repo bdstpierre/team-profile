@@ -86,7 +86,7 @@ const promptManager = () => {
             message: 'Enter your name:',
         },
         {
-            type: 'input',
+            type: 'number',
             name: 'id',
             message: 'Enter your ID:',
         },
@@ -96,7 +96,7 @@ const promptManager = () => {
             message: 'Enter your email address:',
         },
         {
-            type: 'input',
+            type: 'number',
             name: 'officeNumber',
             message: 'Enter your office number:',
         },
