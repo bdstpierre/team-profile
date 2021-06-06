@@ -4,6 +4,8 @@
 
 This project is a Node.js project that generates a team webpage based on data input at a command line interface (CLI).  This program can be used by someone who wants to generate a quickreference page for their team.  It provides information about team member's ID number, email address and github for engineers or what school interns are attending.  The project makes use of inquirer and the filesystem functions.
 
+[Team Profile Builder walk-through video](https://drive.google.com/file/d/1uoQaJZyGZn-x8tXGpUrz9KxSMpQVZh8s/view)
+
 ![Screenshot of the apllication or project](./assets/images/screenshot.png)
 ## Table of Contents
 - [Installation](#installation)
@@ -32,10 +34,7 @@ Copyright 2021 Barry St. Pierre
     
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
-    
-## Features
 
-## How to Contribute
 
 ## Tests
 There are unit tests to test the functionality of the employee, engineer, intern and manager classes.  These tests are included in this repo.
