@@ -1,12 +1,13 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
-const util = require('util');
-const Employee = require('./lib/employee');
+// const fs = require('fs');
+// const util = require('util');
+//const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
+const createHTML = require('./lib/createHTML');
 
-const writeFileAsync = util.promisify(fs.writeFile);
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 let employees = [];
 
@@ -51,7 +52,7 @@ const buildTeam = () => {
             case 'Engineer':
                 console.log('Adding an engineer');
                 addEngineer()
-                // Add the new employee object to the employees array
+                // Add the new engineer object to the employees array
                 .then((answers) => {
                     employees.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
                     console.log(employees);
@@ -62,7 +63,7 @@ const buildTeam = () => {
             case 'Intern':
                 console.log('Adding an intern');
                 addIntern()
-                // Addt he new employee object to the employees array
+                // Add the new intern object to the employees array
                 .then((answers) => {
                     employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
                     console.log(employees);
@@ -72,7 +73,9 @@ const buildTeam = () => {
 
             default:
                 console.log('Team Complete!');
-                //createHTML();
+                console.log(employees);
+                console.log(typeof employees);
+                //createHTML(employees);
         }
     })
 };
@@ -133,7 +136,7 @@ const addIntern = () => {
 // The init function asks for info on the manager and then calls the function to build the team
 const init = () => {
     promptManager()
-    // Add the manager to the employees array
+    // Add the manager object to the employees array
     .then((answers) => {
         employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
         console.log(employees);
