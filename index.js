@@ -117,29 +117,26 @@ const buildTeam = () => {
     .then((answers) => {
         switch(answers.build) {
             case 'Engineer':
-                console.log('Adding an engineer');
                 addEngineer()
                 // Add the new engineer object to the employees array
                 .then((answers) => {
                     employees.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
-                    console.log(employees);
+                    console.log(`Employee ${answers.name} has been added to the team!\n`);
                     return buildTeam();
                 });
                 break;
 
             case 'Intern':
-                console.log('Adding an intern');
                 addIntern()
                 // Add the new intern object to the employees array
                 .then((answers) => {
                     employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
-                    console.log(employees);
+                    console.log(`Employee ${answers.name} has been added to the team!\n`);
                     return buildTeam();
                 });
                 break;
 
             default:
-                console.log('Team Complete!');
                 createHTML(employees);
         }
     })
@@ -204,7 +201,7 @@ const init = () => {
     // Add the manager object to the employees array
     .then((answers) => {
         employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
-        console.log(employees);
+        console.log(`Employee ${answers.name} has been added to the team!\n`);
         buildTeam();
         })
     .catch((err) => console.error(err));
