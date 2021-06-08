@@ -17,7 +17,7 @@ const createHTML = (employees) => {
         employees.forEach(element => {
             switch(element.getRole()){
                 case 'Manager':
-                    htmlString += `			<div class="card col-sm-6 col-md-4 col-lg-3">
+                    htmlString += `	<div class="card shadow col-sm-6 col-md-4 col-lg-3 m-4">
                     <div class="card-header bg-success text-white">
                         <b>${element.getName()}</b><br />Manager
                     </div>
@@ -31,7 +31,7 @@ const createHTML = (employees) => {
                     break;
 
                 case 'Engineer':
-                    htmlString += `			<div class="card col-sm-6 col-md-4 col-lg-3">
+                    htmlString += `			<div class="card shadow col-sm-6 col-md-4 col-lg-3 m-4">
                     <div class="card-header bg-primary text-white">
                         <b>${element.getName()}</b><br />Engineer
                     </div>
@@ -45,7 +45,7 @@ const createHTML = (employees) => {
                     break;
 
                 case 'Intern':
-                    htmlString += `			<div class="card col-sm-6 col-md-4 col-lg-3">
+                    htmlString += `			<div class="card shadow col-sm-6 col-md-4 col-lg-3 m-4">
                     <div class="card-header bg-secondary text-white">
                         <b>${element.getName()}</b><br />Intern
                     </div>
