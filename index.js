@@ -86,19 +86,31 @@ const promptManager = () => {
             message: 'Enter your name:',
         },
         {
-            type: 'number',
+            type: 'input',
             name: 'id',
             message: 'Enter your ID:',
+            validate: function(id)
+            {
+                return /^[0-9]+$/.test(id) ? true : `You entered ${id}, Please enter a number`;
+            },
         },
         {
             type: 'input',
             name: 'email',
             message: 'Enter your email address:',
+            validate: function(email)
+            {
+                return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email) ? true : `You entered ${email}, Please enter a valid email address`;
+            },
         },
         {
-            type: 'number',
+            type: 'input',
             name: 'officeNumber',
             message: 'Enter your office number:',
+            validate: function(officeNumber)
+            {
+                return /^[0-9]+$/.test(officeNumber) ? true : `You entered ${officeNumber}, Please enter a number`;
+            },
         },
     ])
 };
@@ -154,11 +166,19 @@ const addEngineer = () => {
             type: 'input',
             name: 'id',
             message: 'Enter employee\'s ID:',
+            validate: function(id)
+            {
+                return /^[0-9]+$/.test(id) ? true : `You entered ${id}, Please enter a number`;
+            },
         },
         {
             type: 'input',
             name: 'email',
             message: 'Enter employee\'s email address:',
+            validate: function(email)
+            {
+                return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email) ? true : `You entered ${email}, Please enter a valid email address`;
+            },
         },
         {
             type: 'input',
@@ -180,11 +200,19 @@ const addIntern = () => {
             type: 'input',
             name: 'id',
             message: 'Enter employee\'s ID:',
+            validate: function(id)
+            {
+                return /^[0-9]+$/.test(id) ? true : `You entered ${id}, Please enter a number`;
+            },
         },
         {
             type: 'input',
             name: 'email',
             message: 'Enter employee\'s email address:',
+            validate: function(email)
+            {
+                return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email) ? true : `You entered ${email}, Please enter a valid email address`;
+            },
         },
         {
             type: 'input',
