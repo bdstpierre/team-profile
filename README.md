@@ -4,7 +4,7 @@
 
 This project is a Node.js project that generates a team webpage based on data input at a command line interface (CLI).  This program can be used by someone who wants to generate a quickreference page for their team.  It provides information about team member's ID number, email address and github for engineers or what school interns are attending.  The project makes use of inquirer and the filesystem functions.
 
-[Team Profile Builder walk-through video](https://drive.google.com/file/d/1uoQaJZyGZn-x8tXGpUrz9KxSMpQVZh8s/view)
+[Team Profile Builder walk-through video](https://drive.google.com/file/d/1xHXm7BjDCgONMcjBgACY2CLj4ZBYZXZq/view)
 
 ![Screenshot of the apllication or project](./assets/images/screenshot.png)
 ## Table of Contents
